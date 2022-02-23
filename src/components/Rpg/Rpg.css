@@ -1,0 +1,36 @@
+.rpg{
+    background-image: url("../../media/map2.png");
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /* position: relative; */
+}
+
+.locations{
+    position: relative;
+    height: 100vh;
+}
+
+.locations img{
+    width: 100%;
+}
+
+.castle_item{
+width: 70px;
+height: 70px;
+position: absolute;
+cursor: pointer;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+
+.castle_item h2{
+    font-size: 30px;
+    color: lightgrey;
+    margin-top: -5px;
+}
+
+
