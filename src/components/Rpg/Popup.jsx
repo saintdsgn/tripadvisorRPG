@@ -20,7 +20,7 @@ const Popup = ({ castles, setPopUp }) => {
                 <h3>
                   <strong>{item.section}</strong>
                 </h3>
-                <Map parent={item.id} />
+                {/* <Map parent={item.id} /> */}
                 <a className="phone" href={`tel:${item.call}`}>
                   {item.number}
                 </a>

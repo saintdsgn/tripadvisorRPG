@@ -1,14 +1,12 @@
-.character{
-    height: 200px;
-    width: 100px;
-    /* position: absolute;
+.character {
+  height: 200px;
+  width: 100px;
+  position: absolute;
+  /* position: absolute;
     top: 30px;
     left: 30px; */
-    
 }
 
-.character img{
-    width: 100%;
+.character img {
+  width: 100%;
 }
-
-
