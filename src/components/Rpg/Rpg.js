@@ -1,79 +1,60 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import CastleItem from "./CastleItem";
 import Character from "./Character/Character";
 import "./Rpg.css";
+import { useLoadScript } from "@react-google-maps/api";
+// import Map from "./Map";
 
-const Rpg = () => {
-  const [move, setMove] = useState(false);
-  let castles = [
-    {
-      id: 'gold',
-      title: "",
-      img: "https://res.cloudinary.com/dzxxb95vy/image/upload/v1645541802/gold2222_gqjqql.png",
-      visitPlace: "",
-      viewOnMap: false,
-      howToContact: "",
-      top: '30px',
-      right: '50px',
-      category: 'vip'
-    },
-    {
-      id: 'pingeorgia',
-      title: "PinGeorgia",
-      img: "https://res.cloudinary.com/dzxxb95vy/image/upload/v1645597270/pingeorgia_ddrkmw.png",
-      visitPlace: "",
-      viewOnMap: false,
-      howToContact: "",
-      top: '',
-      right: '150px',
-      bottom: '170px',
-      category: 'vip',
-      width: '150px',
-      height: '150px',
-    },
+const Rpg = ({ castles }) => {
+  const [cancelFunction, setCancelFunction] = useState(false);
 
-    
-  ];
-
-
-  
-
-
- 
-  
- 
   const getClickPosition = (e) => {
     let x = e.clientX;
     let y = e.clientY;
-    console.log(x, y)
+    console.log(x, y);
     let translate3dValue = "translate3d(" + x + "px," + y + "px, 0)";
-    document.getElementById('character').style.transform = translate3dValue
-  }
+    document.getElementById("character").style.transform = translate3dValue;
+
+    // setTimeout(() => {
+    //   startScrollLoop();
+    // }, 1000);
+    // setTimeout(() => {
+    //   stopScrollLoop();
+    // }, 2000);
+  };
+
+  var incrementScroll = function () {
+    window.scrollBy(10, 0);
+  };
+
+  var scrollLoopId;
+  var startScrollLoop = function () {
+    scrollLoopId = setInterval(incrementScroll, 10);
+  };
+
+  var stopScrollLoop = function () {
+    clearInterval(scrollLoopId);
+  };
   // area.addEventListener('click', getClickPosition, false)
 
-
- 
-
-  return <div className="rpg" id="rpg" onClick={(e) => getClickPosition(e)}>
+  return (
+    <div className="rpg" id="rpg" onClick={(e) => getClickPosition(e)}>
       <div className="locations">
-           
-        <div id="character" style={{width: '100px', height: '200px', transform: `translate3d(50px, 50px, 0)`, position: 'relative', zIndex: 2}}><Character/></div>
-          {castles.map((item, index) => { if(item.id==='gold'){
-        return (
-          <div key={index} className="castle_item" style={{top: `${item.top}`, right: `${item.right}`}}>
-              <img src={item.img} alt={item.id}/>
-          </div>
-        )
-          }else if (item.id === "pingeorgia"){
-            return (
-              <div key={index} className="castle_item" style={{bottom: `${item.bottom}`, right: `${item.right}`, width: `${item.width}`, height: `${item.height}`}}>
-                <img src={item.img} alt={item.title}/>
-                <h2>{item.title}</h2>
-              </div>
-            )
-          }
-          })}
+        <div id="character">
+          <Character />
+        </div>
+        {castles.map((item, index) => {
+          return (
+            <CastleItem
+              key={index}
+              item={item}
+              setCancelFuntion={setCancelFunction}
+            />
+          );
+        })}
       </div>
-  </div>;
+    </div>
+  );
 };
 
 export default Rpg;

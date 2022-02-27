@@ -1,0 +1,5 @@
+.map_outer {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+}
