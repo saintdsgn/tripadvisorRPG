@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import CastleItem from "../Rpg/CastleItem";
 import "../Rpg/Rpg.css";
-const SwiperVertical = ({ castles }) => {
+const SwiperVertical = ({ castlesData }) => {
   return (
     <Swiper
       direction={"vertical"}
@@ -24,7 +24,7 @@ const SwiperVertical = ({ castles }) => {
       onSlideChange={() => console.log("slide change")}
       style={{ width: "100%", height: "100%" }}
     >
-      {castles.map((item) => {
+      {castlesData.map((item) => {
         return (
           <SwiperSlide
             key={item.id}

@@ -3,11 +3,11 @@ import Character from "../Rpg/Character/Character";
 
 import "./RpgMobile.css";
 import SwiperVerical from "./SwiperVerical";
-const RpgMobile = ({ castles }) => {
+const RpgMobile = ({ castlesData }) => {
   return (
     <div className="rpg_mobile">
       <Character />
-      <SwiperVerical castles={castles} />
+      <SwiperVerical castlesData={castlesData} />
     </div>
   );
 };

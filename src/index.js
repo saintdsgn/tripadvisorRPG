@@ -10,7 +10,7 @@ let castles = [
   {
     id: "gold",
     title: "",
-    img: "https://res.cloudinary.com/dzxxb95vy/image/upload/v1645541802/gold2222_gqjqql.png",
+    img: "https://res.cloudinary.com/dzxxb95vy/image/upload/v1646030719/kisspng-mining-ore-clip-art-egore-5a89b05a7e4e24.8351151815189730185174_c0r3o8.png",
     visitPlace: "https://demo-ux.github.io/",
     // viewOnMap: false,
     howToContact: "",

@@ -8,6 +8,7 @@ import RpgMobile from "../RpgMobile/RpgMobile";
 // import Map from "./Map";
 
 const Rpg = ({ castles }) => {
+  const [castlesData, setCastlesData] = useState(castles);
   // const [cancelFunction, setCancelFunction] = useState(false);
   // const [mapEnd, setMapEnd] = useState(false);
   const getClickPosition = (e) => {
@@ -59,7 +60,7 @@ const Rpg = ({ castles }) => {
           <div id="character">
             <Character />
           </div>
-          {castles.map((item, index) => {
+          {castlesData.map((item, index) => {
             return (
               <CastleItem
                 key={index}
@@ -71,7 +72,7 @@ const Rpg = ({ castles }) => {
         </div>
         <Footer />
       </div>
-      <RpgMobile castles={castles} />
+      <RpgMobile castlesData={castlesData} />
     </>
   );
 };
