@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CastleItem from "./CastleItem";
 import Character from "./Character/Character";
 import "./Rpg.css";
-import { useLoadScript } from "@react-google-maps/api";
+import AnimatedCursor from "react-animated-cursor";
 import Footer from "./Footer/Footer";
 import RpgMobile from "../RpgMobile/RpgMobile";
 // import Map from "./Map";
@@ -21,7 +21,20 @@ const Rpg = ({ castles }) => {
 
     let translate3dValue = "translate3d(" + x + "px," + y + "px, 0)";
     document.getElementById("character").style.transform = translate3dValue;
-    var rect = document.getElementById("character").getBoundingClientRect();
+
+    // var d = document.createElement("div");
+    // d.className = "clickEffect";
+    // d.style.top = e.pageY + "px";
+    // d.style.left = e.pageX + "px";
+    // document.body.appendChild(d);
+    // d.addEventListener(
+    //   "animationend",
+    //   function () {
+    //     d.parentElement.removeChild(d);
+    //   }.bind(this)
+    // );
+
+    // var rect = document.getElementById("character").getBoundingClientRect();
 
     // var val = 0;
     // val -= 500;
@@ -127,8 +140,20 @@ const Rpg = ({ castles }) => {
 
   return (
     <>
-      <div className="rpg" id="rpg" onClick={(e) => getClickPosition(e)}>
-        <div className="locations" id="locations">
+      <div className="rpg" id="rpg">
+        <AnimatedCursor
+          innerSize={8}
+          outerSize={16}
+          color="193, 11, 111"
+          outerAlpha={0.2}
+          innerScale={0.7}
+          outerScale={5}
+        />
+        <div
+          className="locations"
+          id="locations"
+          onClick={(e) => getClickPosition(e)}
+        >
           <div id="character">
             <Character />
           </div>
@@ -142,7 +167,7 @@ const Rpg = ({ castles }) => {
             );
           })}
         </div>
-        <Footer />
+        <Footer setCastlesData={setCastlesData} castles={castles} />
       </div>
       <RpgMobile castlesData={castlesData} />
     </>
