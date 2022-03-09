@@ -5,62 +5,17 @@ import "./Rpg.css";
 import AnimatedCursor from "react-animated-cursor";
 import Footer from "./Footer/Footer";
 import RpgMobile from "../RpgMobile/RpgMobile";
-// import Map from "./Map";
+import Music from "./Music";
 
 const Rpg = ({ castles }) => {
   const [castlesData, setCastlesData] = useState(castles);
 
-  const [update, setUpdate] = useState(false);
-
-  // const [cancelFunction, setCancelFunction] = useState(false);
-  // const [mapEnd, setMapEnd] = useState(false);
   const getClickPosition = (e) => {
-    setUpdate(!update);
-    let x = e.pageX - 200;
+    let x = e.pageX - 300;
     let y = e.pageY - 100;
 
     let translate3dValue = "translate3d(" + x + "px," + y + "px, 0)";
     document.getElementById("character").style.transform = translate3dValue;
-
-    // var d = document.createElement("div");
-    // d.className = "clickEffect";
-    // d.style.top = e.pageY + "px";
-    // d.style.left = e.pageX + "px";
-    // document.body.appendChild(d);
-    // d.addEventListener(
-    //   "animationend",
-    //   function () {
-    //     d.parentElement.removeChild(d);
-    //   }.bind(this)
-    // );
-
-    // var rect = document.getElementById("character").getBoundingClientRect();
-
-    // var val = 0;
-    // val -= 500;
-    // setTimeout(() => {
-    //   document.getElementById("locations").style.left = val + "px";
-    // }, 4000);
-    // if (rect.left <= x + 200) {
-    //   setTimeout(() => {
-    //     startScrollLoop(e);
-    //   }, 1000);
-    //   setTimeout(() => {
-    //     stopScrollLoop();
-    //   }, 2000);
-    // } else {
-    //   // setTimeout(() => {
-    //   //   startScrollToLeftLoop(e);
-    //   // }, 1000);
-    //   // setTimeout(() => {
-    //   //   stopScrollLoop();
-    //   // }, 2000);
-    //   setTimeout(() => {
-    //     window.scrollBy(-50, 0);
-    //   }, 1000);
-    // }
-
-    // mapEnd && stopScrollLoop();
   };
   var incrementScroll = function () {
     window.scrollBy(5, 0);
@@ -76,7 +31,6 @@ const Rpg = ({ castles }) => {
   var startScrollLoop = function (e) {
     scrollLoopId = setInterval(incrementScroll, 5);
     e.pageX > 2000 && stopScrollLoop();
-    // alert(1);
   };
 
   var stopScrollLoop = function () {
@@ -90,65 +44,18 @@ const Rpg = ({ castles }) => {
 
   setTimeout(() => {}, 5000);
 
-  // useEffect(
-  //   (e) => {
-  //     setTimeout(() => {
-  //       setStartX(e.pageX - 50);
-  //       setStartY(e.pageY - 100);
-  //     }, 1100);
-  //     console.log(startX, startY, "x,y");
-  //   },
-  //   [update]
-  // );
-
-  // area.addEventListener('click', getClickPosition, false)
-
-  // function getXPosition() {
-  //   var right = window.pageXOffset || document.documentElement.scrollLeft;
-  //   var left = window.pageXOffset || document.documentElement.scrollRight;
-  //   right === "2000" && stopScrollLoop();
-  //   left === "0" && stopScrollLoop();
-  // }
-
-  // const slider = document.querySelector(".items");
-  // let isDown = false;
-  // let startX;
-  // let scrollLeft;
-
-  // document.body.addEventListener("mousedown", (e) => {
-  //   isDown = true;
-  //   slider.classList.add("active");
-  //   startX = e.pageX - slider.offsetLeft;
-  //   scrollLeft = slider.scrollLeft;
-  // });
-  // document.body.addEventListener("mouseleave", () => {
-  //   isDown = false;
-  //   slider.classList.remove("active");
-  // });
-  // document.body.addEventListener("mouseup", () => {
-  //   isDown = false;
-  //   slider.classList.remove("active");
-  // });
-  // document.body.addEventListener("mousemove", (e) => {
-  //   if (!isDown) return;
-  //   e.preventDefault();
-  //   const x = e.pageX - slider.offsetLeft;
-  //   const walk = (x - startX) * 3; //scroll-fast
-  //   slider.scrollLeft = scrollLeft - walk;
-  //   console.log(walk);
-  // });
-
   return (
     <>
       <div className="rpg" id="rpg">
         <AnimatedCursor
           innerSize={8}
           outerSize={16}
-          color="193, 11, 111"
+          color="255,215,0"
           outerAlpha={0.2}
           innerScale={0.7}
           outerScale={5}
         />
+        {/* <Music /> */}
         <div
           className="locations"
           id="locations"
