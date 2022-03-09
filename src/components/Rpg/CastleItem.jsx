@@ -83,7 +83,7 @@ const CastleItem = ({ item, mobile }) => {
                 onClick={() =>
                   setTimeout(() => {
                     navigate(`/location/${item.id}`);
-                  }, 1000)
+                  }, 2000)
                 }
               >
                 <img src={item.img} alt={item.id} />
@@ -96,7 +96,7 @@ const CastleItem = ({ item, mobile }) => {
                 onClick={() =>
                   setTimeout(() => {
                     navigate(`/location/${item.id}`);
-                  }, 1000)
+                  }, 2000)
                 }
                 className="castle_item"
                 style={{

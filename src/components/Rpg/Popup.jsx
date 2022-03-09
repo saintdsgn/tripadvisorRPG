@@ -3,6 +3,7 @@ import "./Rpg.css";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Map from "./Map/Map";
+
 const Popup = ({ castles, setPopUp }) => {
   let { id } = useParams();
   const navigate = useNavigate();
@@ -18,7 +19,12 @@ const Popup = ({ castles, setPopUp }) => {
               <div className="popup_wrapper">
                 <img src={item.img} alt={item.title} />
                 <h3>
+                  <strong>{item.title}</strong>
+
+                </h3>
+                <h3>
                   <strong>{item.section}</strong>
+
                 </h3>
                 {/* <Map parent={item.id} /> */}
                 <a className="phone" href={`tel:${item.call}`}>

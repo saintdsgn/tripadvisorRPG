@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Rpg from "./components/Rpg/Rpg";
 import Popup from "./components/Rpg/Popup";
 import MainScreen from "./components/MainScreen/MainScreen";
+
 function App() {
   let castles = [
     {
@@ -55,6 +56,25 @@ function App() {
       section: "Where to Stay",
       call: "+9955970266336",
       number: "+995 597 02 66 33",
+    },
+
+    {
+      id: "wow_cheap",
+      title: "WowCheap",
+      img: "https://res.cloudinary.com/dzxxb95vy/image/upload/v1646811357/girl-using-laptop-2893817-2407060_urt24f.webp",
+      visitPlace:
+        "https://www.mymarket.ge/ka/search?UserID=1078130&fbclid=IwAR3wFeOX5WyXRl2z5hTHklgXQgIZ9-zDANJp5yGjK8ZhdPEhPvGPXunzY0o",
+      // viewOnMap: false,
+      howToContact: "",
+      top: "",
+      right: "700px",
+      bottom: "60vh",
+      category: "Where to Shop",
+      width: "130px",
+      height: "70px",
+      section: "Where to Shop",
+      call: "+995555070666",
+      number: "+995 555 07 06 66",
     },
   ];
   return (
